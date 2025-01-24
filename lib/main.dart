@@ -38,7 +38,7 @@ class MyHomePage extends StatelessWidget {
         children: <Widget>[
           Container(
             child: Card(
-              color: const Color.fromARGB(255, 14, 221, 228),
+              color: const Color.fromARGB(255, 241, 245, 23),
               child: Text('Grafico'),
               elevation: 5,
             ),
@@ -49,6 +49,14 @@ class MyHomePage extends StatelessWidget {
                 child: Row(
                   children: <Widget>[
                     Container(
+                      margin:
+                          EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                        color: Colors.black,
+                        width: 2,
+                      )),
+                      padding: EdgeInsets.all(10),
                       child: Text(tr.value.toString()),
                     ),
                     Column(
