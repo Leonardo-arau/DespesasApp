@@ -38,7 +38,7 @@ class MyHomePage extends StatelessWidget {
         children: <Widget>[
           Container(
             child: Card(
-              color: const Color.fromRGBO(255, 215, 64, 1),
+              color: const Color.fromARGB(255, 7, 112, 14),
               child: Text('Grafico'),
               elevation: 5,
             ),
@@ -53,7 +53,7 @@ class MyHomePage extends StatelessWidget {
                           EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                       decoration: BoxDecoration(
                           border: Border.all(
-                          color: const Color.fromRGBO(255, 215, 64, 1),
+                          color: const Color.fromARGB(255, 255, 153, 0),
                         width: 2,
                       )),
                       padding: EdgeInsets.all(10),
@@ -61,13 +61,23 @@ class MyHomePage extends StatelessWidget {
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
-                              color: Colors.amberAccent,
+                              color: Color.fromARGB(255, 255, 153, 0),
                             ))  
                     ),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(tr.title),
-                        Text(tr.date.toString()),
+                        Text(
+                          tr.title,
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          tr.date.toString(),
+                          style: TextStyle(
+                            color: Colors.grey,
+                          ),
+                        ),
                       ],
                     )
                   ],
