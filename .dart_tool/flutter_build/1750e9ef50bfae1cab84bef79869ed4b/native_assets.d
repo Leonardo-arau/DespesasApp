@@ -1,0 +1,1 @@
+ C:\\Users\\Micro\\OneDrive\\Documentos\\Projetos_Mobile\\despesas\\.dart_tool\\flutter_build\\1750e9ef50bfae1cab84bef79869ed4b\\native_assets.yaml: 
