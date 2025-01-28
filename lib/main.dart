@@ -1,5 +1,6 @@
 import 'models/transaction.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 main() => runApp(DespesasApp());
 
@@ -30,15 +31,16 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 238, 236, 126), 
         title: Text('Despesas Pessoais'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Container(
             child: Card(
-              color: const Color.fromARGB(255, 7, 112, 14),
+              color: const Color.fromARGB(255, 238, 236, 126),
               child: Text('Grafico'),
               elevation: 5,
             ),
@@ -53,7 +55,7 @@ class MyHomePage extends StatelessWidget {
                             EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                         decoration: BoxDecoration(
                             border: Border.all(
-                          color: const Color.fromARGB(255, 255, 153, 0),
+                          color: const Color.fromARGB(255, 111, 78, 55),
                           width: 2,
                         )),
                         padding: EdgeInsets.all(10),
@@ -61,7 +63,7 @@ class MyHomePage extends StatelessWidget {
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 20,
-                              color: Color.fromARGB(255, 255, 153, 0),
+                              color: const Color.fromARGB(255, 111, 78, 55),
                             ))),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,7 +74,7 @@ class MyHomePage extends StatelessWidget {
                               fontSize: 16, fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          tr.date.toString(),
+                          DateFormat('d MMM y').format(tr.date),
                           style: TextStyle(
                             color: Colors.grey,
                           ),
@@ -83,6 +85,42 @@ class MyHomePage extends StatelessWidget {
                 ),
               );
             }).toList(),
+          ),
+          Card(
+            elevation: 5,
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                children: <Widget>[
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Título',
+                    ),
+                  ),
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Valor (R\$)',
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(
+                        onPressed: () {},
+                        style: TextButton.styleFrom(
+                          foregroundColor:
+                              Color.fromARGB(255, 111, 78, 55), // Cor do texto
+                          textStyle: TextStyle(
+                            fontSize: 18, // Tamanho da fonte
+                          ),
+                        ),
+                        child: Text('Nova Transação'),
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
           )
         ],
       ),
