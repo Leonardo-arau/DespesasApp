@@ -12,6 +12,10 @@ class DespesasApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+
+  final TitleController = TextEditingController();
+  final ValueController = TextEditingController();
+
   final _transactions = [
     Transaction(
       id: 't1',
@@ -31,11 +35,10 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 238, 236, 126), 
+        backgroundColor: const Color.fromARGB(255, 238, 236, 126),
         title: Text('Despesas Pessoais'),
       ),
       body: Column(
-        
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Container(
@@ -93,11 +96,13 @@ class MyHomePage extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   TextField(
+                    controller: TitleController,
                     decoration: InputDecoration(
                       labelText: 'Título',
                     ),
                   ),
                   TextField(
+                    controller: ValueController,
                     decoration: InputDecoration(
                       labelText: 'Valor (R\$)',
                     ),
@@ -106,7 +111,10 @@ class MyHomePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          print(TitleController.text);
+                          print(ValueController.text);
+                        },
                         style: TextButton.styleFrom(
                           foregroundColor:
                               Color.fromARGB(255, 111, 78, 55), // Cor do texto
