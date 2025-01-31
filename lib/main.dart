@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'components/transaction_user.dart';
+import 'dart:math';
+import 'components/transaction_form.dart';
+import 'components/transaction_list.dart';
+import '/models/transaction.dart';
 
 main() => runApp(DespesasApp());
 
@@ -12,7 +15,47 @@ class DespesasApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  final _transactions = [
+    Transaction(
+      id: 't1',
+      title: 'Novo Tenis',
+      value: 300.50,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Conta de Luz',
+      value: 211.97,
+      date: DateTime.now(),
+    ),
+  ];
+
+  _addTransaction(String title, double value) {
+    final newTransaction = Transaction(
+      id: Random().nextDouble().toString(),
+      title: title,
+      value: value,
+      date: DateTime.now(),
+    );
+
+    setState(() {
+      _transactions.add(newTransaction);
+    });
+  }
+
+  _openTransactionFormModal(BuildContext context) {
+    showModalBottomSheet(
+        context: context,
+        builder: (_) {
+          return TransactionForm(_addTransaction);
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +64,7 @@ class MyHomePage extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
-            onPressed: () {},
+            onPressed: () => _openTransactionFormModal(context),
           ),
         ],
         backgroundColor: const Color.fromARGB(255, 238, 236, 126),
@@ -38,14 +81,14 @@ class MyHomePage extends StatelessWidget {
                 elevation: 5,
               ),
             ),
-            TransactionUser(),
+            TransactionList(_transactions),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         shape: CircleBorder(),
-        onPressed: () {},
+        onPressed: () => _openTransactionFormModal(context),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
