@@ -7,10 +7,25 @@ import '/models/transaction.dart';
 main() => runApp(DespesasApp());
 
 class DespesasApp extends StatelessWidget {
+  DespesasApp({super.key});
+  final ThemeData tema = ThemeData();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: MyHomePage(),
+      theme: ThemeData(
+        useMaterial3: false,
+        appBarTheme: AppBarTheme(
+          backgroundColor: Color.fromARGB(255, 0, 76, 99), // Cor amarela
+          foregroundColor: const Color.fromARGB(255, 152, 255, 152),
+        ),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Color.fromARGB(255, 100, 200, 100),
+          primary: const Color.fromARGB(255, 0, 76, 99),
+          secondary: const Color.fromARGB(255, 0, 76, 99),
+        ),
+      ),
     );
   }
 }
@@ -69,7 +84,6 @@ class _MyHomePageState extends State<MyHomePage> {
             onPressed: () => _openTransactionFormModal(context),
           ),
         ],
-        backgroundColor: const Color.fromARGB(255, 238, 236, 126),
         title: Text('Despesas Pessoais'),
       ),
       body: SingleChildScrollView(
@@ -78,7 +92,6 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Container(
               child: Card(
-                color: const Color.fromARGB(255, 238, 236, 126),
                 child: Text('Grafico'),
                 elevation: 5,
               ),
@@ -88,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
         shape: CircleBorder(),
         onPressed: () => _openTransactionFormModal(context),
       ),

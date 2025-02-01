@@ -35,7 +35,7 @@ class _TransactionFormState extends State<TransactionForm> {
           children: <Widget>[
             TextField(
               controller: TitleController,
-              onSubmitted: (_) => _submitForm(),
+              
               decoration: InputDecoration(
                 labelText: 'Título',
               ),
@@ -54,8 +54,6 @@ class _TransactionFormState extends State<TransactionForm> {
                 TextButton(
                   onPressed: _submitForm, 
                   style: TextButton.styleFrom(
-                    foregroundColor:
-                        Color.fromARGB(255, 111, 78, 55), // Cor do texto
                     textStyle: TextStyle(
                       fontSize: 18, // Tamanho da fonte
                     ),
