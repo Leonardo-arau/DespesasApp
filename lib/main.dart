@@ -25,7 +25,7 @@ class DespesasApp extends StatelessWidget {
         useMaterial3: false,
         appBarTheme: AppBarTheme(
           backgroundColor: Color.fromARGB(255, 0, 76, 99), // Cor amarela
-          foregroundColor: const Color.fromARGB(255, 152, 255, 152),
+          foregroundColor: const Color.fromARGB(255, 255, 255, 255),
         ),
         colorScheme: ColorScheme.fromSeed(
           seedColor: Color.fromARGB(255, 100, 200, 100),
@@ -45,19 +45,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final _transactions = [
-    Transaction(
-      id: 't1',
-      title: 'Novo Tenis',
-      value: 300.50,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Conta de Luz',
-      value: 211.97,
-      date: DateTime.now(),
-    ),
+  final List<Transaction> _transactions = [
+    //  Transaction(
+    //    id: 't1',
+    //    title: 'Novo Tenis',
+    //    value: 300.50,
+    //    date: DateTime.now(),
+    //  ),
+    //  Transaction(
+    //    id: 't2',
+    //    title: 'Conta de Luz',
+    //    value: 211.97,
+    //    date: DateTime.now(),
+    //  ),
   ];
 
   _addTransaction(String title, double value) {
