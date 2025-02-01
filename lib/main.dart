@@ -15,6 +15,13 @@ class DespesasApp extends StatelessWidget {
     return MaterialApp(
       home: MyHomePage(),
       theme: ThemeData(
+        fontFamily: 'Quicksand',
+        textTheme: ThemeData.light().textTheme.copyWith(
+                titleLarge: TextStyle(
+              fontFamily: 'OpenSans',
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            )),
         useMaterial3: false,
         appBarTheme: AppBarTheme(
           backgroundColor: Color.fromARGB(255, 0, 76, 99), // Cor amarela
@@ -31,6 +38,8 @@ class DespesasApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -92,8 +101,8 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Container(
               child: Card(
-                child: Text('Grafico'),
                 elevation: 5,
+                child: Text('Grafico'),
               ),
             ),
             TransactionList(_transactions),
