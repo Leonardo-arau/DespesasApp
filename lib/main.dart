@@ -15,7 +15,6 @@ class DespesasApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyHomePage(),
       theme: ThemeData(
         fontFamily: 'Quicksand',
         textTheme: ThemeData.light().textTheme.copyWith(
@@ -26,15 +25,17 @@ class DespesasApp extends StatelessWidget {
             )),
         useMaterial3: false,
         appBarTheme: AppBarTheme(
-          backgroundColor: Color.fromARGB(255, 0, 76, 99), // Cor amarela
+          backgroundColor: Color.fromARGB(255, 0, 76, 99), 
           foregroundColor: const Color.fromARGB(255, 255, 255, 255),
         ),
         colorScheme: ColorScheme.fromSeed(
-          seedColor: Color.fromARGB(255, 100, 200, 100),
+          seedColor: Color.fromARGB(255, 0, 76, 99),
           primary: const Color.fromARGB(255, 0, 76, 99),
-          secondary: const Color.fromARGB(255, 0, 76, 99),
+          secondary: const Color.fromARGB(255, 132, 169, 172),
+          tertiary: const Color.fromARGB(255, 59, 105, 120),
         ),
       ),
+      home: MyHomePage(),
     );
   }
 }
