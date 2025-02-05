@@ -42,7 +42,7 @@ class Chart extends StatelessWidget {
           return ChartBar(
             label: tr['day'].toString(),
             value: tr['value'] as double,
-            percentage: 0,
+            percentage: 0.3,
           );
         }).toList(),
       ),
